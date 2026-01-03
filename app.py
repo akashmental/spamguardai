@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# <<<<<<< HEAD
 from flask import Flask, render_template, request, jsonify
 import model  # ML model file
 
@@ -31,7 +31,7 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
-=======
+# =======
 from flask import Flask, render_template, request, jsonify
 import model  # ML model file
 
@@ -64,4 +64,5 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 24f5cb8 (Initial commit: Flask spam classifier app)
+# >>>>>>> 24f5cb8 (Initial commit: Flask spam classifier app)
+
