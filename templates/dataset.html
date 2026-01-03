@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -231,4 +232,239 @@
     
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+    <title>SpamGuard AI - Dataset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+      <div class="logo">
+            <img class="mylogo" src="{{ url_for('static', filename='logo.png') }}" alt="SpamGuard AI Logo">
+            <span>SpamGuard AI</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+          <li><a href="{{ url_for('classifier') }}" class="{% if request.endpoint == 'classifier' %}active{% endif %}">Classifier</a></li>
+          <li><a href="{{ url_for('dataset') }}" class="{% if request.endpoint == 'dataset' %}active{% endif %}">Dataset</a></li>
+        </ul>
+      </nav>
+  </header>
+  <!-- ===== Model Performance Section ===== -->
+  <section class="performance-section">
+    <div class="container">
+      <h2>📊 Spam Classifier Performance</h2>
+      <p>
+           A Naive Bayes model trained and evaluated on a comprehensive email dataset.
+      </p>
+
+      <div class="metrics">
+        <div class="metric-card">
+          <h3>Total Emails</h3>
+          <p>5572</p>
+        </div>
+        <div class="metric-card">
+          <h3>Ham (Legitimate)</h3>
+          <p>4825</p>
+        </div>
+        <div class="metric-card">
+            <h3>Spam</h3>
+            <p>747</p>
+        </div>
+        <div class="metric-card">
+            <h3>Accuracy</h3>
+            <p>98.55%</p>
+        </div>
+        <div class="metric-card">
+            <h3>Precision</h3>
+            <p>93.53%</p>
+        </div>
+        <div class="metric-card">
+            <h3>Recall</h3>
+            <p>95.59%</p>
+        </div>
+      </div>
+
+      <p class="note">
+        ✅ This means the model correctly classifies most emails while balancing catching spam and avoiding false alarms.
+      </p>
+    </div>
+  </section>
+
+    <!-- ===== Dataset Overview Section ===== -->
+  <!-- ===== Dataset Section (Tabbed) ===== -->
+    <div class="data-container">
+        <div class="data-tab-menu">
+            <div class="data-tab active" data-tab="overview">Overview</div>
+            <div class="data-tab" data-tab="sample">Sample Data</div>
+            <div class="data-tab" data-tab="features">Features</div>
+        </div>
+        
+        <!-- Overview Tab Content -->
+        <div class="data-tab-content active" id="overview-content">
+            <div class="data-section-header">
+                <h2>About the Dataset</h2>
+                <p>The dataset used for this project is a collection of over 5,500 messages, classified as either legitimate ("ham") or "spam." This dataset is used to train and evaluate the performance of our email classifier.</p>
+            </div>
+
+            <div class="data-content-grid">
+                <div>
+                    <div class="data-section-header">
+                        <h3>Data Preprocessing</h3>
+                    </div>
+                    <ul>
+                        <li>Text normalization and cleaning</li>
+                        <li>Removing duplicate messages</li>
+                        <li>Removing common English stop words</li>
+                        <li>Tokenization and feature extraction using CountVectorizer</li>
+                        <li>Label encoding for classification</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="data-section-header">
+                        <h3>Data Split</h3>
+                    </div>
+                    <ul>
+                        <li>Training: 80% (4458 messages)</li>
+                        <li>Testing: 20% (1114 messages)</li>
+                        <li>Stratified sampling maintained</li>
+                        <li>Cross-validation performed</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="data-section-header">
+                <h2>Data Distribution</h2>
+            </div>
+
+            <div class="data-data-distribution">
+                <div class="data-chart-section">
+                    <h3>Email Classification</h3>
+                    <div class="data-progress-bar-container">
+                        <div class="data-ham-bar" style="width: 86.6%;"></div>
+                        <div class="data-spam-bar" style="width: 13.4%;"></div>
+                    </div>
+                    <div class="data-chart-labels">
+                        <span>Ham (Legitimate): 86.6%</span>
+                        <span>Spam: 13.4%</span>
+                    </div>
+                </div>
+                <div class="data-keywords-section">
+                    <h3>Top Spam Keywords</h3>
+                    <div class="data-keyword-list">
+                        <span class="data-keyword-tag">FREE</span>
+                        <span class="data-keyword-tag">URGENT</span>
+                        <span class="data-keyword-tag">MONEY</span>
+                        <span class="data-keyword-tag">WINNER</span>
+                        <span class="data-keyword-tag">CLICK</span>
+                        <span class="data-keyword-tag">LIMITED</span>
+                        <span class="data-keyword-tag">OFFER</span>
+                        <span class="data-keyword-tag">CLAIM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Data Tab Content (Placeholder) -->
+        <div class="data-tab-content" id="sample-content">
+            <div class="data-section-header">
+                <h2>Sample Data</h2>
+                <p>A small sample of the messages in the dataset to show the format of the data. The full dataset is much larger.</p>
+            </div>
+            <div style="background-color: #f7f9fc; padding: 20px; border-radius: 8px; border: 1px solid #e0e2e5;">
+                <pre style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace;">
+              <b>Category:</b> Not Spam
+              <b>Message:</b> "Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got no"
+
+              <b>Category:</b> Spam
+              <b>Message:</b> "U have won a new prize! Call 09061701461 to claim your reward."
+
+              <b>Category:</b> Not Spam
+              <b>Message:</b> "I'm gonna be home soon and i will send you the code to your email."</pre>
+            </div>
+        </div>
+
+        <!-- Features Tab Content -->
+        <div class="data-tab-content" id="features-content">
+            <div class="feat-section-header">
+                <h2>Feature Engineering</h2>
+                <p>Our models extract various features from email text to identify spam characteristics:</p>
+            </div>
+
+            <div class="feat-grid">
+                <div class="feat-card feat-blue">
+                    <h3>Text Features</h3>
+                    <ul>
+                        <li>Word frequency (TF-IDF)</li>
+                        <li>N-gram analysis</li>
+                        <li>Character count</li>
+                        <li>Word count</li>
+                        <li>Sentence length</li>
+                    </ul>
+                </div>
+                <div class="feat-card feat-green">
+                    <h3>Content Features</h3>
+                    <ul>
+                        <li>URL presence and count</li>
+                        <li>Email address patterns</li>
+                        <li>Phone number detection</li>
+                        <li>Currency mentions</li>
+                        <li>Attachment indicators</li>
+                    </ul>
+                </div>
+                <div class="feat-card feat-purple">
+                    <h3>Style Features</h3>
+                    <ul>
+                        <li>Capital letters ratio</li>
+                        <li>Exclamation mark count</li>
+                        <li>Special characters</li>
+                        <li>HTML tag presence</li>
+                        <li>Font formatting</li>
+                    </ul>
+                </div>
+                <div class="feat-card feat-orange">
+                    <h3>Semantic Features</h3>
+                    <ul>
+                        <li>Spam keywords</li>
+                        <li>Urgency indicators</li>
+                        <li>Financial terms</li>
+                        <li>Medical references</li>
+                        <li>Promotional language</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.data-tab');
+            const contents = document.querySelectorAll('.data-tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
+
+                    // Deactivate all tabs and content
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Activate the clicked tab and its content
+                    tab.classList.add('active');
+                    document.getElementById(targetTab + '-content').classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    
+
+</body>
+>>>>>>> 24f5cb8 (Initial commit: Flask spam classifier app)
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,4 +167,174 @@
         </div>
     </footer>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+    <title>SpamGuard AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img class="mylogo" src="{{ url_for('static', filename='logo.png') }}" alt="SpamGuard AI Logo">
+            <span>SpamGuard AI</span>
+        </div>
+        <nav>
+            <ul>
+            <li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('classifier') }}" class="{% if request.endpoint == 'classifier' %}active{% endif %}">Classifier</a></li>
+            <li><a href="{{ url_for('dataset') }}" class="{% if request.endpoint == 'dataset' %}active{% endif %}">Dataset</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- hero section  -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('{{ url_for('static', filename='hero-bg.png') }}'); background-size: cover; background-position: center;">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>AI-Powered Email Spam Detection</h1>
+            <p>
+                Our spam detection system is built using the <strong>Naive Bayes algorithm</strong>,
+                a fast and reliable machine learning model for text classification.
+                It learns from real email data to accurately distinguish between
+                <em>Spam</em> and <em>Not Spam</em> messages. With this model,
+                your inbox stays protected from unwanted and harmful emails.
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('classifier') }}" class="btn primary">Try Classifier</a>
+                <a href="{{ url_for('dataset') }}" class="btn secondary">View Dataset</a>
+            </div>
+
+        </div>
+        <img src="{{ url_for('static', filename='hero-bg.png') }}" alt="Spam Detection Background" class="hero-img">
+    </section>
+
+    <section class="features">
+        <h2>Powerful Features</h2>
+        <p>Our spam detection system is built using machine learning techniques tailored for text classification. It processes real-world SMS data to accurately detect spam.</p>
+        <div class="feature-cards">
+            <div class="card">
+                <img src="{{ url_for('static', filename='naive-bayes.png') }}" alt="Naive Bayes Icon">
+                <h3>Naive Bayes Algorithm</h3>
+                <p>Probabilistic classifier based on Bayes theorem. It learns from word frequencies and calculates the probability of a message being spam or not spam.</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='tv.png') }}" alt="Text Vectorization Icon">
+                <h3>Text Vectorization</h3>
+                <p>Using CountVectorizer, the model converts messages into numerical features by analyzing word counts and filtering out common stop words.</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='rtp.png') }}" alt="Real-Time Prediction Icon">
+                <h3>Real-Time Prediction</h3>
+                <p>Once trained, the model can classify new messages instantly as Spam or Not Spam, making it lightweight and efficient for real-world use.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dataset">
+        <div class="dataset-text">
+            <h2>Spam Email Classifier</h2>
+            <br>
+            <p>Our model is trained on the <b>SMS Spam Collection Dataset</b>, containing thousands of real-world messages labeled as spam or not spam. After cleaning duplicates and preparing the data, we used a <b>Naive Bayes classifier</b> with text vectorization to identify spam patterns.</p>
+            
+            <div class="stats">
+                <div class="stat-card blue">
+                    <strong>5K+</strong>
+                    <span>Total Emails</span>
+                </div>
+                <div class="stat-card green">
+                    <strong>98.45%</strong>
+                    <span>Accuracy</span>
+                </div>
+            </div>
+            <p>This model learns common spam keywords and patterns, enabling accurate predictions on new incoming messages. It classifies each message into Spam or Not Spam in real time.</p>
+            <br>
+            <a href="{{ url_for('dataset') }}" class="link">Explore Dataset →</a>
+        </div>
+
+        <div class="dataset-img">
+            <img src="{{ url_for('static', filename='dataset.png') }}" alt="Dataset Graphs and Charts">
+        </div>
+    </section>
+
+    <section class="performance">
+        <h2>Model Performance</h2>
+        <p>effectiveness of the algorithm</p>
+        <div class="perf-boxes">
+            <div class="perf-card blue">
+                <h3>Naive Bayes</h3>
+                <p>Accuracy: 98.55%</p>
+                <p>Precision: 93.53%</p>
+                <p>Recall: 95.59%</p>
+                <p>F1-Score: 94.55%</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Ready to Test Your Emails?</h2>
+            <p>
+                Our Naive Bayes spam detection model helps you spot unwanted messages with high accuracy.
+                Enter a message and see if it's classified as <strong>Spam</strong> or <strong>Not Spam</strong>.
+            </p>
+            <a href="{{ url_for('classifier') }}" class="cta-btn">Try It Now</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>SpamGuard AI</h3>
+                <p>Your trusted tool for smarter email protection.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="#classifier">Spam Classifier</a></li>
+                    <li><a href="#dataset">Dataset Overview</a></li>
+                    <li><a href="#performance">Model Performance</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:apv5477@gmail.com">Email Us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="{{ url_for('static', filename='linkedin-icon.png') }}" alt="LinkedIn"></a>
+                <a href="#"><img src="{{ url_for('static', filename='instagram-icon.png') }}" alt="Instagram"></a>
+                <a href="#"><img src="{{ url_for('static', filename='x-icon.png') }}" alt="Twitter"></a>
+                <a href="#"><img src="{{ url_for('static', filename='facebook-icon.png') }}" alt="Facebook"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 SpamGuard AI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+>>>>>>> 24f5cb8 (Initial commit: Flask spam classifier app)
 </html>

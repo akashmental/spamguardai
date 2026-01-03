@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -115,3 +116,122 @@ document.getElementById("spamForm").addEventListener("submit", async function(e)
 
 </body>
 </html>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <title>SpamGuard AI - Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+      <div class="logo">
+        <img class="mylogo" src="{{ url_for('static', filename='logo.png') }}" alt="SpamGuard AI Logo">
+        <span>SpamGuard AI</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+          <li><a href="{{ url_for('classifier') }}" class="{% if request.endpoint == 'classifier' %}active{% endif %}">Classifier</a></li>
+          <li><a href="{{ url_for('dataset') }}" class="{% if request.endpoint == 'dataset' %}active{% endif %}">Dataset</a></li>
+        </ul>
+      </nav>
+  </header>
+
+
+  <!-- ===== Model Performance Section ===== -->
+  <section class="performance-section">
+    <div class="container">
+      <h2>📊 Spam Email Classifier – Naive Bayes</h2>
+      <p>
+        Our classifier uses the <strong>Multinomial Naive Bayes algorithm</strong> to detect spam messages.
+        After training and testing on the dataset, here are the results:
+      </p>
+
+      <div class="metrics">
+            
+        <div class="metric-card">
+          <h3>Accuracy</h3>
+          <p>~98%</p>
+        </div>
+        <div class="metric-card">
+          <h3>Precision</h3>
+          <p>~93%</p>
+        </div>
+        <div class="metric-card">
+          <h3>Recall</h3>
+          <p>~92%</p>
+        </div>
+        <div class="metric-card">
+          <h3>F1-Score</h3>
+          <p>~92%</p>
+        </div>
+      </div>
+
+      <p class="note">
+            ✅ This means the model correctly classifies most emails while balancing catching spam and avoiding false alarms.
+      </p>
+
+      
+    </div>
+  </section>
+
+  <!-- ===== Spam Classifier Form ===== -->
+  
+  <section class="classifier-form">
+  <div class="form-card">
+    <p>Check if your message is Spam or Not Spam</p>
+
+    <form id="spamForm">
+      <label for="message">Enter your message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Type a message here..." required></textarea>
+      
+      <div class="btn-group">
+        <button type="submit">Check Spam</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </div>
+    </form>
+
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+</section>
+
+<script>
+document.getElementById("spamForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const message = document.getElementById("message").value;
+
+  let response = await fetch("/predict", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  });
+
+  let data = await response.json();
+
+  let resultBox = document.getElementById("result");
+  resultBox.style.display = "block";
+
+  resultBox.innerHTML = `
+    <h5>Your Message:</h5>
+    <pre class="user-message">${message}</pre>
+    ${
+      data.prediction === "Spam"
+        ? '<div class="alert alert-danger">🚨 This message is <strong>Spam</strong></div>'
+        : '<div class="alert alert-success">✅ This message is <strong>Not Spam</strong></div>'
+    }
+  `;
+});
+</script>
+
+
+
+
+
+</body>
+</html>
+>>>>>>> 24f5cb8 (Initial commit: Flask spam classifier app)
