@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Arial, sans-serif; color: #111827; }
@@ -713,7 +713,7 @@ body {
             }
         }
 
-=======
+
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Arial, sans-serif; color: #111827; }
@@ -1428,4 +1428,3 @@ body {
             }
         }
 
->>>>>>> 24f5cb8 (Initial commit: Flask spam classifier app)
