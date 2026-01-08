@@ -11,6 +11,7 @@
 <body>
 
     <header class="navbar">
+        
         <div class="logo">
             <img class="mylogo" src="{{ url_for('static', filename='logo.png') }}" alt="SpamGuard AI Logo">
             <span>SpamGuard AI</span>
@@ -31,12 +32,9 @@
         <div class="hero-content">
             <h1>AI-Powered Email Spam Detection</h1>
             <p>
-                Our spam detection system is built using the <strong>Naive Bayes algorithm</strong>,
-                a fast and reliable machine learning model for text classification.
-                It learns from real email data to accurately distinguish between
-                <em>Spam</em> and <em>Not Spam</em> messages. With this model,
-                your inbox stays protected from unwanted and harmful emails.
+                Our spam detection system uses the <strong>Naive Bayes algorithm</strong>, a fast and reliable model trained on real email data. It accurately identifies <em>Spam</em> and <em>Not Spam</em> messages, helping keep your inbox protected.
             </p>
+
             <div class="hero-buttons">
                 <a href="{{ url_for('classifier') }}" class="btn primary">Try Classifier</a>
                 <a href="{{ url_for('dataset') }}" class="btn secondary">View Dataset</a>
@@ -53,17 +51,17 @@
             <div class="card">
                 <img src="{{ url_for('static', filename='naive-bayes.png') }}" alt="Naive Bayes Icon">
                 <h3>Naive Bayes Algorithm</h3>
-                <p>Probabilistic classifier based on Bayes theorem. It learns from word frequencies and calculates the probability of a message being spam or not spam.</p>
+                <p>Naive Bayes uses word frequencies and Bayes theorem to predict whether a message is spam.</p>
             </div>
             <div class="card">
                 <img src="{{ url_for('static', filename='tv.png') }}" alt="Text Vectorization Icon">
                 <h3>Text Vectorization</h3>
-                <p>Using CountVectorizer, the model converts messages into numerical features by analyzing word counts and filtering out common stop words.</p>
+                <p>CountVectorizer turns text into numeric features by counting words and removing common stop words.</p>
             </div>
             <div class="card">
                 <img src="{{ url_for('static', filename='rtp.png') }}" alt="Real-Time Prediction Icon">
                 <h3>Real-Time Prediction</h3>
-                <p>Once trained, the model can classify new messages instantly as Spam or Not Spam, making it lightweight and efficient for real-world use.</p>
+                <p>The trained model instantly predicts spam or not spam, making it fast and efficient.</p>
             </div>
         </div>
     </section>
@@ -167,3 +165,4 @@
         </div>
     </footer>
 </body>
+</html>
